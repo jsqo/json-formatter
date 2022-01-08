@@ -31,11 +31,35 @@ function copyToClipboard (e) {
 }
 
 function downloadJsonAsFile (e) {
+	var d = new Date();
+	var json_filename = "jsqo_on_" + ("0" + d.getDate()).slice(-2)
+		+ "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + d.getFullYear()
+		+ "_at_" + ("0" + d.getHours()).slice(-2) + "-" + ("0" + d.getMinutes()).slice(-2)
+		+ "-" + ("0" + d.getSeconds()).slice(-2) + ".json";
+
 	const outputTextArea = document.querySelector("textarea[name='outputJSON']");
 	let text = outputTextArea.value.trim();
 	var textFileAsBlob = new Blob([text], {type:'text/plain'});
-	var textToSaveAsURL = window.URL.createObjectURL(textFileAsBlob);
-	window.open(textToSaveAsURL);
+
+	var downloadLink = document.createElement("a");
+	downloadLink.download = json_filename;
+	downloadLink.innerHTML = "Download Output";
+	if (window.webkitURL != null)
+	{
+		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	} else {
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = destroyClickedElement;
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+	}
+
+	downloadLink.click();
+}
+
+function destroyClickedElement (event)
+{
+	document.body.removeChild(event.target);
 }
 
 
