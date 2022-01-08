@@ -23,6 +23,7 @@ function formatJSON (prettify=false) {
 }
 
 function copyToClipboard (e) {
+	const outputTextArea = document.querySelector("textarea[name='outputJSON']");
 	let text = outputTextArea.value.trim();
 	if (text) {
 		navigator.clipboard.writeText(outputTextArea.value);

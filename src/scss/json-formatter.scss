@@ -24,7 +24,7 @@ header, footer {
 }
 
 header {
-	background-color: darkblue;
+	background-color: orangered;
 }
 
 main {
@@ -34,7 +34,7 @@ main {
 	margin: auto;
 	& > div {
 		& > div.heading {
-			color: darkblue;
+			color: orangered;
 		}
 		& > div > textarea {
 			height: 420px;
