@@ -30,4 +30,12 @@ function copyToClipboard (e) {
 	}
 }
 
+function downloadJsonAsFile (e) {
+	const outputTextArea = document.querySelector("textarea[name='outputJSON']");
+	let text = outputTextArea.value.trim();
+	var textFileAsBlob = new Blob([text], {type:'text/plain'});
+	var textToSaveAsURL = window.URL.createObjectURL(textFileAsBlob);
+	window.open(textToSaveAsURL);
+}
+
 
