@@ -1,13 +1,16 @@
 
 
 
-function formatJSON (e) {
+function formatJSON (prettify=false) {
 	const inputTextArea = document.querySelector("textarea[name='inputJSON']");
 	const outputTextArea = document.querySelector("textarea[name='outputJSON']");
-
 	try {
 		const jsonText = JSON.parse(inputTextArea.value);
-		outputTextArea.value = JSON.stringify(jsonText, null, 4);
+		if (prettify) {
+			outputTextArea.value = JSON.stringify(jsonText, null, 4);
+		} else {
+			outputTextArea.value = JSON.stringify(jsonText);
+		}
 		outputTextArea.select();
 		console.log("Success.");
 	} catch (e) {
@@ -17,7 +20,6 @@ function formatJSON (e) {
 }
 
 function copyToClipboard (e) {
-	const outputTextArea = document.querySelector("textarea[name='outputJSON']");
 	let text = outputTextArea.value.trim();
 	if (text) {
 		navigator.clipboard.writeText(outputTextArea.value);
