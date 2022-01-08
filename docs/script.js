@@ -11,7 +11,10 @@ function formatJSON (prettify=false) {
 		} else {
 			outputTextArea.value = JSON.stringify(jsonText);
 		}
-		outputTextArea.select();
+
+		if (document.activeElement != inputTextArea) {
+			outputTextArea.select();
+		}
 		console.log("Success.");
 	} catch (e) {
 		outputTextArea.value = "/* Error while parsing JSON! */"
