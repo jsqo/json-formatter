@@ -2,29 +2,45 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Jsqo's JSON formatter</title>
+	<title>JSqo's JSON formatter</title>
 
 	<link rel="stylesheet" href="main.css">
 
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VFZKZLYZ7"></script>
+	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7VFZKZLYZ7');</script> -->
+
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+	<header>
+		<h2>JSqo's JSON formatter</h2>
+	</header>
 	<main>
 		<div class="input">
 			<div class="heading">
 				<h2>Enter JSON here:</h2>
 			</div>
 			<div class="input-box">
-				<textarea></textarea>
+				<textarea name="inputJSON"></textarea>
+			</div>
+			<div class="form">
+				<form>
+					<button type="button" onclick="formatJSON()">Format JSON</button>
+				</form>
 			</div>
 		</div>
 		<div class="output">
 			<div class="heading">
 				<h2>Indented JSON:</h2>
 			</div>
-			<div class="input-box">
-				<textarea></textarea>
+			<div class="output-box">
+				<textarea name="outputJSON"></textarea>
 			</div>
 		</div>
 	</main>
+
+	<footer>
+		<h4>&copy; Copyright 2020, Ankur Seth.</h4>
+	</footer>
 </body>
 </html>
