@@ -32,6 +32,13 @@
 			<div class="form">
 				<form>
 					<button type="button" onclick="formatJSON()">Minify</button>
+					<select name="indentation">
+						<option value="0">Tabs</option>
+						<option value="1">1 space</option>
+						<option value="2">2 spaces</option>
+						<option value="4" selected>4 spaces</option>
+						<option value="8">8 spaces</option>
+					</select>
 					<button type="button" onclick="formatJSON(true)">Prettify</button>
 				</form>
 			</div>

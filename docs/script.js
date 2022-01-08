@@ -4,10 +4,18 @@
 function formatJSON (prettify=false) {
 	const inputTextArea = document.querySelector("textarea[name='inputJSON']");
 	const outputTextArea = document.querySelector("textarea[name='outputJSON']");
+
+	const indentationSelect = document.querySelector("select[name='indentation']");
+	const indentation = parseInt(indentationSelect.value);
+
 	try {
 		const jsonText = JSON.parse(inputTextArea.value);
 		if (prettify) {
-			outputTextArea.value = JSON.stringify(jsonText, null, 4);
+			if (indentation === 0) {
+				outputTextArea.value = JSON.stringify(jsonText, null, "\t");
+			} else {
+				outputTextArea.value = JSON.stringify(jsonText, null, indentation);
+			}
 		} else {
 			outputTextArea.value = JSON.stringify(jsonText);
 		}
